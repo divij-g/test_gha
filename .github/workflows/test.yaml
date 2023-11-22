@@ -3,7 +3,7 @@ name: Deploy Closing Costs Lambda Function
 on:
   push:
     branches:
-      - *
+      - master
   workflow_dispatch:
     inputs:
       lambdaFunction:
