@@ -1,0 +1,23 @@
+name: Deploy Closing Costs Lambda Function
+#run-name: Dev Deploy ${{ matrix.lambdaFunction }} Lambda Function
+on:
+  push:
+    branches:
+      - *
+  workflow_dispatch:
+    inputs:
+      lambdaFunction:
+        type: string
+        description: Lambda
+        required: true
+
+jobs:
+  generate_matrix:
+    name: Generate Job Matrix
+    runs-on: ubuntu-22.04
+    steps:
+      - name: setting branch names as environment variables
+        run: |
+          echo "base_branch=${{github.ref_name}}" >> $GITHUB_ENV 
+          echo "compare_branch=${{github.head_ref}}" >> $GITHUB_ENV
+
