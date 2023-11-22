@@ -19,5 +19,5 @@ jobs:
       - name: setting branch names as environment variables
         run: |
           echo "base_branch=${{github.ref_name}}" >> $GITHUB_ENV 
-          echo "compare_branch=${{GITHUB_REF}}" >> $GITHUB_ENV
+          echo "compare_branch=${{github.ref}}" >> $GITHUB_ENV
 
