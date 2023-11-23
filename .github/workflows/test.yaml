@@ -20,4 +20,5 @@ jobs:
         run: |
           echo "base_branch=${{github.ref_name}}" >> $GITHUB_ENV 
           echo "compare_branch=${{github.ref}}" >> $GITHUB_ENV
+          echo "${{ github.event.before}}" >> $GITHUB_ENV
 
