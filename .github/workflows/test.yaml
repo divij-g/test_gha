@@ -22,7 +22,7 @@ jobs:
       #     echo "compare_branch=${{github.ref}}" 
       #     echo "${{ github.event.before}}" 
       - uses: actions/checkout@v3
-      - name: Get merged branch name
+      # - name: Get merged branch name
         # run: |
           # MERGED_BRANCH=$(git log -1 --pretty=%D | grep -oP 'origin/\K[^,]+')
           # echo "Merged branch name: $MERGED_BRANCH"
