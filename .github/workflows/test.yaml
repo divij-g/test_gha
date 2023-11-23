@@ -18,7 +18,11 @@ jobs:
     steps:
       - name: setting branch names as environment variables
         run: |
-          echo "base_branch=${{github.ref_name}}" >> $GITHUB_ENV 
-          echo "compare_branch=${{github.ref}}" >> $GITHUB_ENV
-          echo "${{ github.event.before}}" >> $GITHUB_ENV
+          echo "base_branch=${{github.ref_name}}" 
+          echo "compare_branch=${{github.ref}}" 
+          echo "${{ github.event.before}}" 
+      - name: Get merged branch name
+        run: |
+          MERGED_BRANCH=$(git log -1 --pretty=%D | grep -oP 'origin/\K[^,]+')
+          echo "Merged branch name: $MERGED_BRANCH"
 
